@@ -1,0 +1,11 @@
+xcode_version=`xcodebuild -version | grep Xcode | grep  -o '[0-9]\+' | head -1`
+if (($xcode_version > 9)); then
+	echo "you need XCode 9 or less to build this"
+	exit
+fi
+
+cd Release
+rake setup
+rake build:framework
+echo "the framework should be in ./Release/distribution/build/framework/Release/"
+ls distribution/build/framework/Release/
