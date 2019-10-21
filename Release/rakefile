@@ -45,7 +45,7 @@ $package_maker = env_default(:PACKAGE_MAKER, "#{$toolchain}/usr/bin/packagemaker
   if pmapp and not pmapp.to_s.empty?
     "#{pmapp}/PackageMaker.app/Contents/MacOS/PackageMaker"
   else
-    `xcrun -find packagemaker`
+    nil #`xcrun -find packagemaker`
   end
 end
 $destdir       = env_default(:DESTDIR, File.join($release_dir, 'distribution'))
